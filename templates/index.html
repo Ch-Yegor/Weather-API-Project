@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Weather forecast</title>
+
+        <script>
+            window.onload = function() {
+                if ({{ script|tojson }}) {
+                        document.querySelector('.content').style.display = 'grid';
+                    }
+            };
+        </script>
+    </head>
+
+    <body>
+        <div class="box">
+            <form action="/" method="post" class="search">
+                <input autocomplete="off" autofocus name="city" placeholder="City" type="text">
+                <button type="submit">Search</button>
+            </form>
+
+            <div class="content">
+                <div class="main-info">
+                    <h2>{{ data["address"] }}<h2>
+                    <img src="static/WeatherIcons/PNG/1st Set - Color/{{ icon }}.png" onerror="this.style.display='none'">
+                    <h2>{{ temp }}</h2>
+                    <p>{{ datetime }}</p>
+                    <p>{{ data["description"] }} {{ description }}</p>
+                </div>
+
+                <div class="weather-details">
+                    <div class="detail">
+                        <strong>{{ words[0] }}</strong>
+                        <p>{{ feelslike }}</p>
+                    </div>
+                    <div class="detail">
+                        <strong>{{ words[1] }}</strong>
+                        <p>{{ precipprob }}</p>
+                    </div>
+                    <div class="detail">
+                        <strong>{{ words[2] }}</strong>
+                        <p>{{ tempmax }}</p>
+                    </div>
+                    <div class="detail">
+                        <strong>{{ words[3] }}</strong>
+                        <p>{{ tempmin }}</p>
+                    </div>
+                    <div class="detail">
+                        <strong>{{ words[4] }}</strong>
+                        <p>{{ humidity }}</p>
+                    </div>
+                    <div class="detail">
+                        <strong>{{ words[5] }}</strong>
+                        <p>{{ windspeed }}</p>
+                    </div>
+                </div>
+            </div>
+            <img class="error" alt="{{ top }}" class="border img-fluid" src="https://api.memegen.link/images/custom/{{ top | urlencode }}/{{ bottom | urlencode }}.jpg?background=https://i.imgur.com/CsCgN7Ll.png&width=400" title="{{ top }}">
+        </div>
+    </body>
+</html>

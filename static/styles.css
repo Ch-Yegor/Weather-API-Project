@@ -1,0 +1,54 @@
+/*! Claude AI assistant and CS50's duck debugger helped me a lot with writing the CSS code */
+body {
+    background-color: aliceblue;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100vh;
+}
+
+.box {
+    background-color: gainsboro;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 100px;
+    width: 600px;
+    text-align: center;
+}
+
+.search {
+    display: flex;
+}
+
+input {
+    flex-grow: 1;
+}
+
+.content {
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.main-info {
+    text-align: center;
+}
+
+.weather-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.detail {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.error {
+    margin: 0 auto;
+    margin-top: 10px;
+}
